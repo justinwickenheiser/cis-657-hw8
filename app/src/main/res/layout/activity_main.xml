@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,8 @@
         android:id="@+id/latP2"
         android:layout_width="166dp"
         android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/longP2"
         android:ems="10"
         android:hint="Enter latitude for p2"
         android:inputType="numberDecimal"
@@ -20,6 +22,8 @@
         android:id="@+id/latP1"
         android:layout_width="166dp"
         android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/longP1"
         android:ems="10"
         android:hint="Enter latitude for p1"
         android:inputType="numberDecimal"
@@ -28,8 +32,11 @@
 
     <EditText
         android:id="@+id/longP2"
-        android:layout_width="149dp"
+        android:layout_width="187dp"
         android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/longP1"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:hint="Enter longitude for p2"
         android:inputType="numberDecimal"
@@ -39,8 +46,12 @@
 
     <EditText
         android:id="@+id/longP1"
-        android:layout_width="149dp"
+        android:layout_width="185dp"
         android:layout_height="46dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="11dp"
         android:ems="10"
         android:hint="Enter longitude for p1"
         android:inputType="numberDecimal"
@@ -52,6 +63,10 @@
         android:id="@+id/calcBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="-122dp"
+        android:layout_marginTop="147dp"
+        android:layout_toStartOf="@+id/distLabel"
         android:text="Calculate"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="133dp" />
@@ -60,6 +75,9 @@
         android:id="@+id/clearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/calcBtn"
+        android:layout_marginEnd="125dp"
         android:text="Clear"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="133dp" />
@@ -68,6 +86,10 @@
         android:id="@+id/distLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="221dp"
         android:text="Distance:"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="209dp" />
@@ -76,7 +98,10 @@
         android:id="@+id/bearingLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/distLabel"
+        android:layout_marginBottom="231dp"
         android:text="Bearing: "
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="239dp" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
