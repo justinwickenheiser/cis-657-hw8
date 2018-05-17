@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
             loc2.setLatitude(Double.parseDouble(latP2.getText().toString()));
             loc2.setLongitude(Double.parseDouble(longP2.getText().toString()));
 
-            
+            // Distance
+            float distInMeters = loc1.distanceTo(loc2);
+            float distInKm = distInMeters / 1000;
+            distLabel.setText("Distance: " + String.format("%.02f", distInKm) + " Kilometers");
+
+            // Bearing
+            float bearingInDegrees = loc1.bearingTo(loc2);
+            bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInDegrees) + " Degrees");
         });
 
 
