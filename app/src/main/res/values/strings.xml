@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">hw4</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>
