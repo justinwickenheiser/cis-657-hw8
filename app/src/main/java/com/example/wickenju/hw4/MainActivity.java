@@ -28,13 +28,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         clearBtn.setOnClickListener((View v) -> {
-            Location loc1 = new Location();
-            loc1.setLatitude(new Double(latP1.getText()));
-            loc1.setLongitude(new Double(longP1.getText()));
-
-            Location loc2 = new Location();
-            loc2.setLatitude(new Double(latP2.getText()));
-            loc2.setLongitude(new Double(longP2.getText()));
+            latP1.setText("");
+            longP1.setText("");
+            latP2.setText("");
+            longP2.setText("");
+            distLabel.setText("Distance: ");
+            bearingLabel.setText("Bearing: ");
         });
+
+        calcBtn.setOnClickListener((View v) -> {
+            Location loc1 = new Location("");
+            loc1.setLatitude(Double.parseDouble(latP1.getText().toString()));
+            loc1.setLongitude(Double.parseDouble(longP1.getText().toString()));
+
+            Location loc2 = new Location("");
+            loc2.setLatitude(Double.parseDouble(latP2.getText().toString()));
+            loc2.setLongitude(Double.parseDouble(longP2.getText().toString()));
+
+            
+        });
+
+
     }
 }
