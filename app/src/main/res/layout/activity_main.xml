@@ -14,7 +14,7 @@
         android:layout_alignTop="@+id/longP2"
         android:ems="10"
         android:hint="Enter latitude for p2"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="70dp" />
 
@@ -26,7 +26,7 @@
         android:layout_alignTop="@+id/longP1"
         android:ems="10"
         android:hint="Enter latitude for p1"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
 
@@ -39,7 +39,7 @@
         android:layout_marginTop="76dp"
         android:ems="10"
         android:hint="Enter longitude for p2"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:singleLine="true"
         tools:layout_editor_absoluteX="195dp"
         tools:layout_editor_absoluteY="70dp" />
@@ -54,7 +54,7 @@
         android:layout_marginTop="11dp"
         android:ems="10"
         android:hint="Enter longitude for p1"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:singleLine="true"
         tools:layout_editor_absoluteX="195dp"
         tools:layout_editor_absoluteY="16dp" />
