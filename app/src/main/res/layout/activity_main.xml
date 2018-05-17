@@ -7,18 +7,6 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/latP2"
-        android:layout_width="166dp"
-        android:layout_height="46dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/longP2"
-        android:ems="10"
-        android:hint="Enter latitude for p2"
-        android:inputType="numberSigned|numberDecimal"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="70dp" />
-
-    <EditText
         android:id="@+id/latP1"
         android:layout_width="166dp"
         android:layout_height="46dp"
@@ -29,6 +17,18 @@
         android:inputType="numberSigned|numberDecimal"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/latP2"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/longP2"
+        android:ems="10"
+        android:hint="Enter latitude for p2"
+        android:inputType="numberSigned|numberDecimal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="70dp" />
 
     <EditText
         android:id="@+id/longP2"
