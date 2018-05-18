@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    String distanceUnits = "";
+    String degreeUnits = "";
+
+    static int SETTINGS_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                intent.putExtra();
-                intent.putExtra();
+                intent.putExtra("distance", distanceUnits);
+                intent.putExtra("degree", degreeUnits);
+                startActivityForResult(intent, MainActivity.SETTINGS_REQUEST_CODE);
         }
 
         return true;

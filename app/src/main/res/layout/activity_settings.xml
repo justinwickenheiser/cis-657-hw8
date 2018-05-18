@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/lblDistanceUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/lblDegreeUnits"
+        android:layout_marginTop="185dp"
+        android:text="Distance Units:"/>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,14 +30,41 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_settings"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
+        android:id="@+id/lblDegreeUnits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="99dp"
+        android:text="Degree Units:"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    <Spinner
+        android:id="@+id/spnDegree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lblDistanceUnits"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-154dp"/>
+
+    <Spinner
+        android:id="@+id/spnDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="216dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="71dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/checkbox_on_background"/>
+
+</RelativeLayout>

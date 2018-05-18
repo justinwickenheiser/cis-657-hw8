@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">hw4</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string-array name="distanceUnits">
+        <item>Miles</item>
+        <item>Kilometers</item>
+    </string-array>
+    <string-array name="degreeUnits">
+        <item>Degrees</item>
+        <item>Mils</item>
+    </string-array>
 </resources>
