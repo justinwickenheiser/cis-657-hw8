@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    String distanceUnits = "";
-    String degreeUnits = "";
+    String distanceUnits = "Kilometers";
+    String degreeUnits = "Degrees";
 
     static int SETTINGS_REQUEST_CODE = 1;
 
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         TextView distLabel = (TextView) findViewById(R.id.distLabel);
         TextView bearingLabel = (TextView) findViewById(R.id.bearingLabel);
 
-
         clearBtn.setOnClickListener((View v) -> {
             latP1.setText("");
             longP1.setText("");
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         calcBtn.setOnClickListener((View v) -> {
+
             Location loc1 = new Location("");
             loc1.setLatitude(Double.parseDouble(latP1.getText().toString()));
             loc1.setLongitude(Double.parseDouble(longP1.getText().toString()));
@@ -56,11 +56,21 @@ public class MainActivity extends AppCompatActivity {
             // Distance
             float distInMeters = loc1.distanceTo(loc2);
             float distInKm = distInMeters / 1000;
-            distLabel.setText("Distance: " + String.format("%.02f", distInKm) + " Kilometers");
+            if (distanceUnits == "Kilometers") {
+                distLabel.setText("Distance: " + String.format("%.02f", distInKm) + " " + distanceUnits);
+            } else {
+                float distInMiles = distInKm * new Float(0.621371);
+                distLabel.setText("Distance: " + String.format("%.02f", distInMiles) + " " + distanceUnits);
+            }
 
             // Bearing
             float bearingInDegrees = loc1.bearingTo(loc2);
-            bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInDegrees) + " Degrees");
+            if (degreeUnits == "Degrees") {
+                bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInDegrees) + " " + degreeUnits);
+            } else {
+                float bearingInMils = bearingInDegrees * new Float(17.777777777778);
+                bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInMils) + " " + degreeUnits);
+            }
         });
 
 
@@ -84,5 +94,49 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != RESULT_CANCELED) {
+            if (requestCode == SETTINGS_REQUEST_CODE) {
+                distanceUnits = data.getStringExtra("distance");
+                degreeUnits = data.getStringExtra("degree");
+
+                EditText latP1 = (EditText) findViewById(R.id.latP1);
+                EditText longP1 = (EditText) findViewById(R.id.longP1);
+                EditText latP2 = (EditText) findViewById(R.id.latP2);
+                EditText longP2 = (EditText) findViewById(R.id.longP2);
+                TextView distLabel = (TextView) findViewById(R.id.distLabel);
+                TextView bearingLabel = (TextView) findViewById(R.id.bearingLabel);
+
+                Location loc1 = new Location("");
+                loc1.setLatitude(Double.parseDouble(latP1.getText().toString()));
+                loc1.setLongitude(Double.parseDouble(longP1.getText().toString()));
+
+                Location loc2 = new Location("");
+                loc2.setLatitude(Double.parseDouble(latP2.getText().toString()));
+                loc2.setLongitude(Double.parseDouble(longP2.getText().toString()));
+
+                // Distance
+                float distInMeters = loc1.distanceTo(loc2);
+                float distInKm = distInMeters / 1000;
+                if (distanceUnits == "Kilometers") {
+                    distLabel.setText("Distance: " + String.format("%.02f", distInKm) + " " + distanceUnits);
+                } else {
+                    float distInMiles = distInKm * new Float(0.621371);
+                    distLabel.setText("Distance: " + String.format("%.02f", distInMiles) + " " + distanceUnits);
+                }
+
+                // Bearing
+                float bearingInDegrees = loc1.bearingTo(loc2);
+                if (degreeUnits == "Degrees") {
+                    bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInDegrees) + " " + degreeUnits);
+                } else {
+                    float bearingInMils = bearingInDegrees * new Float(17.777777777778);
+                    bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInMils) + " " + degreeUnits);
+                }
+            }
+        }
     }
 }
