@@ -27,9 +27,21 @@ public class SettingsActivity extends AppCompatActivity {
         Spinner spnDistance = (Spinner)findViewById(R.id.spnDistance);
         Spinner spnDegree = findViewById(R.id.spnDegree);
 
+        Intent payload = getIntent();
+        if (payload.hasExtra("distance")) {
+            distanceSelection = payload.getStringExtra("distance");
+        }
+        if (payload.hasExtra("degree")) {
+            degreeSelection = payload.getStringExtra("degress");
+        }
+
         ArrayAdapter<CharSequence> distanceAdapter = ArrayAdapter.createFromResource(this, R.array.distanceUnits, android.R.layout.simple_spinner_dropdown_item);
         distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnDistance.setAdapter(distanceAdapter);
+        if (distanceSelection != null) {
+            int spinnerPosition = distanceAdapter.getPosition(distanceSelection);
+            spnDistance.setSelection(spinnerPosition);
+        }
         spnDistance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -45,6 +57,10 @@ public class SettingsActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> degreeAdapter = ArrayAdapter.createFromResource(this, R.array.degreeUnits, android.R.layout.simple_spinner_dropdown_item);
         degreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnDegree.setAdapter(degreeAdapter);
+        if (degreeSelection != null) {
+            int spinnerPosition = degreeAdapter.getPosition(degreeSelection);
+            spnDegree.setSelection(spinnerPosition);
+        }
         spnDegree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
