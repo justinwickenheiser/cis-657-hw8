@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
             distanceSelection = payload.getStringExtra("distance");
         }
         if (payload.hasExtra("degree")) {
-            degreeSelection = payload.getStringExtra("degress");
+            degreeSelection = payload.getStringExtra("degree");
         }
 
         ArrayAdapter<CharSequence> distanceAdapter = ArrayAdapter.createFromResource(this, R.array.distanceUnits, android.R.layout.simple_spinner_dropdown_item);

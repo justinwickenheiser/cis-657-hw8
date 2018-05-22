@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         latP2 = (EditText) findViewById(R.id.latP2);
         longP2 = (EditText) findViewById(R.id.longP2);
 
+        latP1.setText("43.077366");
+        longP1.setText("-85.994053");
+        latP2.setText("43.077303");
+        longP2.setText("-85.993860");
+
         Button calcBtn = (Button) findViewById(R.id.calcBtn);
         Button clearBtn = (Button) findViewById(R.id.clearBtn);
 
@@ -102,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             // Distance
             float distInMeters = loc1.distanceTo(loc2);
             float distInKm = distInMeters / 1000;
-            if (distanceUnits == "Kilometers") {
+            if (distanceUnits.equals("Kilometers")) {
                 distLabel.setText("Distance: " + String.format("%.02f", distInKm) + " " + distanceUnits);
             } else {
                 float distInMiles = distInKm * new Float(0.621371);
@@ -111,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Bearing
             float bearingInDegrees = loc1.bearingTo(loc2);
-            if (degreeUnits == "Degrees") {
+            if (degreeUnits.equals("Degrees")) {
                 bearingLabel.setText("Bearing: " + String.format("%.02f", bearingInDegrees) + " " + degreeUnits);
             } else {
                 float bearingInMils = bearingInDegrees * new Float(17.777777777778);
