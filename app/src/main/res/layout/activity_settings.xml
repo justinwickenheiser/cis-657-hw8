@@ -1,70 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SettingsActivity">
 
-    <TextView
-        android:id="@+id/lblDistanceUnits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/lblDegreeUnits"
-        android:layout_marginTop="185dp"
-        android:text="Distance Units:"/>
-
-    <android.support.design.widget.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/lblDegreeUnits"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="166dp"
+            android:text="Degree Units:"
+            android:textSize="24sp" />
 
-    </android.support.design.widget.AppBarLayout>
+        <Spinner
+            android:id="@+id/spnDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/lblDistanceUnits" />
 
-    <TextView
-        android:id="@+id/lblDegreeUnits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="99dp"
-        android:text="Degree Units:"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnSave"
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="26dp"
+            android:layout_marginEnd="27dp"
+            android:clickable="true" />
 
-    <Spinner
-        android:id="@+id/spnDegree"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/lblDistanceUnits"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="-154dp"/>
+        <Spinner
+            android:id="@+id/spnDegree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/lblDegreeUnits" />
 
-    <Spinner
-        android:id="@+id/spnDistance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="216dp"/>
+        <TextView
+            android:id="@+id/lblDistanceUnits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="77dp"
+            android:text="Distance Units:"
+            android:textSize="24sp" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="55dp"
-        android:layout_marginEnd="71dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/checkbox_on_background"/>
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-</RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
+
+</LinearLayout>

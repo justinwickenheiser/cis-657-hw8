@@ -1,107 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/latP1"
-        android:layout_width="166dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/longP1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Enter latitude for p1"
         android:inputType="numberSigned|numberDecimal"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/latP2"
-        android:layout_width="166dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/longP2"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter latitude for p2"
         android:inputType="numberSigned|numberDecimal"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintEnd_toEndOf="@+id/latP1"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/latP1" />
 
     <EditText
         android:id="@+id/longP2"
-        android:layout_width="187dp"
-        android:layout_height="46dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/longP1"
-        android:layout_marginTop="76dp"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter longitude for p2"
         android:inputType="numberSigned|numberDecimal"
         android:singleLine="true"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintStart_toStartOf="@+id/longP1"
+        app:layout_constraintTop_toBottomOf="@+id/longP1" />
 
     <EditText
         android:id="@+id/longP1"
-        android:layout_width="185dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="2dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Enter longitude for p1"
         android:inputType="numberSigned|numberDecimal"
         android:singleLine="true"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/calcBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="-122dp"
-        android:layout_marginTop="147dp"
-        android:layout_toStartOf="@+id/distLabel"
+        android:layout_marginTop="8dp"
         android:text="Calculate"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/latP2" />
 
     <Button
         android:id="@+id/clearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/calcBtn"
-        android:layout_marginEnd="125dp"
+        android:layout_marginTop="8dp"
         android:text="Clear"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintTop_toBottomOf="@+id/longP2" />
 
     <TextView
         android:id="@+id/distLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="221dp"
+        android:layout_marginTop="8dp"
         android:text="Distance:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="209dp" />
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/calcBtn" />
 
     <TextView
         android:id="@+id/bearingLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/distLabel"
-        android:layout_marginBottom="231dp"
+        android:layout_marginTop="8dp"
         android:text="Bearing: "
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="239dp" />
-</RelativeLayout>
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/distLabel" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</android.support.constraint.ConstraintLayout>
