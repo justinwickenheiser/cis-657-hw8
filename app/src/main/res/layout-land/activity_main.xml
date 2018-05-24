@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/latP1"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Enter latitude for p1"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/latP2"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter latitude for p2"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/latP1"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/latP1" />
+
+    <EditText
+        android:id="@+id/longP2"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter longitude for p2"
+        android:inputType="numberSigned|numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintStart_toStartOf="@+id/longP1"
+        app:layout_constraintTop_toBottomOf="@+id/longP1" />
+
+    <EditText
+        android:id="@+id/longP1"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Enter longitude for p1"
+        android:inputType="numberSigned|numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calcBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Calculate"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/latP2" />
+
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Clear"
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintTop_toBottomOf="@+id/longP2" />
+
+    <TextView
+        android:id="@+id/distLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Distance:"
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/calcBtn" />
+
+    <TextView
+        android:id="@+id/bearingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Bearing: "
+        app:layout_constraintEnd_toEndOf="@+id/longP1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/latP1"
+        app:layout_constraintTop_toBottomOf="@+id/distLabel" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>
