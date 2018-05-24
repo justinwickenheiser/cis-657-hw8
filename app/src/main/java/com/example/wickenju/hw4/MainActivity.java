@@ -1,6 +1,6 @@
 // Nathan Hull
 // Justin Wickenheiser
-// HW 4
+// HW 6
 package com.example.wickenju.hw4;
 
 import android.content.Intent;
