@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.wickenju.hw4.dummy.HistoryContent;
+
+import org.joda.time.DateTime;
+
 public class MainActivity extends AppCompatActivity {
     String distanceUnits = "Kilometers";
     String degreeUnits = "Degrees";
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     TextView bearingLabel;
 
     static int SETTINGS_REQUEST_CODE = 1;
+    static int HISTORY_RESULT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,15 +79,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
                 intent.putExtra("distance", distanceUnits);
                 intent.putExtra("degree", degreeUnits);
                 startActivityForResult(intent, MainActivity.SETTINGS_REQUEST_CODE);
+                return true;
+            case R.id.action_history:
+                intent = new Intent(MainActivity.this, HistoryActivity.class);
+                startActivityForResult(intent, HISTORY_RESULT );
+                return true;
         }
 
-        return true;
+        return false;
     }
 
     @Override
@@ -92,6 +103,13 @@ public class MainActivity extends AppCompatActivity {
                 distanceUnits = data.getStringExtra("distance");
                 degreeUnits = data.getStringExtra("degree");
                 calculate();
+            } else if (resultCode == HISTORY_RESULT) {
+                String[] vals = data.getStringArrayExtra("item");
+                this.latP1.setText(vals[0]);
+                this.longP1.setText(vals[1]);
+                this.latP2.setText(vals[2]);
+                this.longP2.setText(vals[3]);
+                this.calculate(); // code that updates the calcs.
             }
         }
     }
@@ -106,6 +124,12 @@ public class MainActivity extends AppCompatActivity {
             Location loc2 = new Location("");
             loc2.setLatitude(Double.parseDouble(latP2.getText().toString()));
             loc2.setLongitude(Double.parseDouble(longP2.getText().toString()));
+
+            // remember the calculation.
+            HistoryContent.HistoryItem item = new
+                    HistoryContent.HistoryItem(latP1.getText().toString(),
+                    longP1.getText().toString(), latP2.getText().toString(), longP2.getText().toString(), DateTime.now());
+            HistoryContent.addItem(item);
 
             // Distance
             float distInMeters = loc1.distanceTo(loc2);
