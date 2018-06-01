@@ -18,10 +18,7 @@ public class HistoryContent {
         public final String destLat;
         public final String destLng;
         public final DateTime timestamp;
-        public HistoryItem(String origLat, String origLng, String destLat,
-
-                           String destLng, DateTime timestamp) {
-
+        public HistoryItem(String origLat, String origLng, String destLat, String destLng, DateTime timestamp) {
             this.origLat = origLat;
             this.origLng = origLng;
             this.destLat = destLat;
@@ -33,4 +30,15 @@ public class HistoryContent {
             return "(" + this.origLat + "," + this.origLat + ")";
         }
     }
+//    static {
+//        DateTime now = DateTime.now();
+//        addItem(new HistoryItem("43.12444", "-85.3523", "42.1234", "85.3555",
+//                now.minusDays(1)));
+//        addItem(new HistoryItem("42.12444", "-77.3523", "42.1234", "85.3555",
+//                now.minusDays(1)));
+//        addItem(new HistoryItem("43.12444", "-85.3523", "42.1234", "85.3555",
+//                now.plusDays(1)));
+//        addItem(new HistoryItem("55.12444", "-85.3523", "42.1234", "85.3555",
+//                now.plusDays(1)));
+//    }
 }

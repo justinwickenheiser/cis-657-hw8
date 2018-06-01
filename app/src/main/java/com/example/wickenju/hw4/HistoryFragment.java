@@ -68,10 +68,10 @@ public class HistoryFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new HistoryAdapter(HistoryContent.ITEMS, mListener));
             DividerItemDecoration did = new DividerItemDecoration(recyclerView.getContext(),
                     DividerItemDecoration.VERTICAL);
             recyclerView.addItemDecoration(did);
+            recyclerView.setAdapter(new HistoryAdapter(HistoryContent.ITEMS, mListener));
         }
         return view;
     }
