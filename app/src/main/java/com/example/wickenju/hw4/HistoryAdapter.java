@@ -31,10 +31,10 @@ public class HistoryAdapter extends SectionedRecyclerViewAdapter<HistoryAdapter.
 
     public HistoryAdapter(List<HistoryItem> items,
                           OnListFragmentInteractionListener listener) {
-//mValues = items;
         this.dayValues = new HashMap<String,List<HistoryItem>>();
         this.sectionHeaders = new ArrayList<String>();
         DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd");
+
         for (HistoryItem hi : items) {
             String key = "Entries for " + fmt.print(hi.timestamp);
             List<HistoryItem> list = this.dayValues.get(key);
@@ -59,13 +59,6 @@ public class HistoryAdapter extends SectionedRecyclerViewAdapter<HistoryAdapter.
         public FooterViewHolder(View view) {
             super(view);
         }
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_history, parent, false);
-        return new ViewHolder(view);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
